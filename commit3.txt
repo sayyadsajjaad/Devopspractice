@@ -1,5 +1,3 @@
-::qw
-commit3
 king
 code
 sajjad
