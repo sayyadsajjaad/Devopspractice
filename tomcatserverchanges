@@ -1,0 +1,4 @@
+Add the following roles in the file:
+<role rolename="admin-gui"/>
+<role rolename="manager-gui"/>
+<user username="admin" password="admin" roles="admin-gui,manager-gui"/>
