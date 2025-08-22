@@ -1,0 +1,51 @@
+For Ubuntu:
+sudo apt install openjdk-11-jdk openjdk-11-jre -y
+
+For Amazon Linux:
+sudo yum install java-11-amazon-corretto-devel -y
+
+For Redhat Linux:
+sudo yum install java-11-openjdk -y
+
+
+==============================
+
+Step#1 Check Java and Maven are installed
+$ java -version
+$ mvn --version
+
+Step#2 Install wget if not exist
+$ sudo yum install wget -y
+
+Step#3 Install Java 11 Software (JRE)
+$ sudo yum install wget java-11-openjdk -y
+$ java -version
+
+Step#4 Download Maven Software
+$ cd /tmp
+$ sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
+
+Step#5 Extract to a folder
+$ sudo tar xvzf apache-maven-3.9.1-bin.tar.gz -C /opt/
+$ cd /opt
+# rename to a short folder name
+$ sudo mv apache-maven-3.9.1 maven
+
+Step#6 Set Maven Home Directory
+$ sudo vi /etc/profile.d/maven.sh
+
+# insert below lines 
+export M2_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+
+(ESC :wq)
+
+Step#7 Reload Profiles for updating path
+$ sudo chmod +x /etc/profile.d/maven.sh
+$ source /etc/profile.d/maven.sh
+
+Step#8 Check Maven Installation
+$ mvn -version
+
+Step#9 Remove TAR ZIP File
+$ sudo rm -f /tmp/apache-maven-3.9.1-bin.tar.gz
