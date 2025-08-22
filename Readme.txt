@@ -1,14 +1,16 @@
-Welcome to Devopspractice
+[Unit]
+Description=nexus service
+After=network.target
 
-continue.....!
+[Service]
+Type=forking
+LimitNOFILE=65536
+User=nexus
+Group=nexus
+ExecStart=/opt/nexus/bin/nexus start
+ExecStop=/opt/nexus/bin/nexus stop
+User=nexus
+Restart=on-abort
 
-
-git config --global user.email "sayyadsajjaad@gmail.com"
-git config --global user.name "sayyadsajjaad"
-
-git remote add origin https://github.com/sayyadsajjaad/Devopspractice.git
-
-git push -u origin main
-
-git remote add origin https://github.com/sayyadsajjaad/Devopspractice.git
-
+[Install]
+WantedBy=multi-user.target
